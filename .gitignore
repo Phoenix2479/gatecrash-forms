@@ -11,8 +11,8 @@ package-lock.json
 
 # Responses (user data)
 responses/
-*.csv
-*.json
+responses/*.csv
+responses/*.json
 
 # Logs
 *.log
