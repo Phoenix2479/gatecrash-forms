@@ -102,7 +102,7 @@ You can use any SMTP server - configure it in `~/.gatecrash/config.json` or per-
 Set up your SMTP credentials once:
 
 ```bash
-node cli/gatecrash-forms.js config smtp.host smtp.zoho.in
+node cli/gatecrash-forms.js config smtp.host smtp.example.com
 node cli/gatecrash-forms.js config smtp.port 465
 node cli/gatecrash-forms.js config smtp.secure true
 node cli/gatecrash-forms.js config smtp.auth.user your-email@example.com

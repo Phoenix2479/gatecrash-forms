@@ -184,7 +184,7 @@ gatecrash-forms config smtp.auth.pass fake-password
 **5. Deploy to production when satisfied:**
 ```bash
 # Now use real credentials
-gatecrash-forms config smtp.host smtp.zoho.in
+gatecrash-forms config smtp.host smtp.example.com
 gatecrash-forms config smtp.auth.user your-real-email@example.com
 gatecrash-forms config smtp.auth.pass your-app-password
 ```
