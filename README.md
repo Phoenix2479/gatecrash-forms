@@ -3,12 +3,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 [![GitHub Stars](https://img.shields.io/github/stars/Phoenix2479/gatecrash-forms?style=social)](https://github.com/Phoenix2479/gatecrash-forms)
+[![Kimi Claw](https://img.shields.io/badge/Kimi_Claw-Ready-orange)](https://kimi.com)
+[![ClawHub](https://img.shields.io/badge/ClawHub-Available-blue)](https://clawhub.ai/Phoenix2479/gatecrash-forms)
 
 **CLI-first form builder that respects your freedom**
 
 We crash gates. We don't build new ones.
 
-> 🎯 **Status:** MVP Complete | 52KB total | Built in 2.5 hours | Ready for production
+> 🎯 **Status:** MVP Complete | 52KB total | Ready for production
+> 
+> ✨ **Works with [Kimi Claw](https://kimi.com)** - Install instantly from ClawHub's 5,000+ skill library
 
 ## Philosophy: BYOK (Bring Your Own Keys)
 
@@ -39,7 +43,31 @@ See [SECURITY.md](./SECURITY.md) for full security practices and safe installati
 
 ## Quick Start
 
-### Install Dependencies
+### 🦞 For Kimi Claw Users
+
+**Install from ClawHub marketplace:**
+
+1. Open [Kimi Claw](https://kimi.com) in your browser
+2. Search for "gatecrash-forms" in the skill library
+3. Click install
+4. Start generating forms instantly!
+
+**Or via command line:**
+```bash
+clawhub install gatecrash-forms
+```
+
+### 📦 For npm Users
+
+**Install globally:**
+
+```bash
+npm install -g gatecrash-forms
+```
+
+### 💻 For Developers
+
+**Install Dependencies
 
 ```bash
 npm install
@@ -63,27 +91,49 @@ Visit http://localhost:3000 to see all available forms.
 
 ## Features
 
-### Field Types
-- ✅ Text, email, phone, URL
-- ✅ Textarea (multi-line)
-- ✅ Select dropdown
-- ✅ Radio buttons
-- ✅ Checkboxes (multi-select)
-- ✅ Scale/rating (1-5, 1-10, custom)
-- ✅ Date picker
+### 🤖 AI Agent Ready
+- ✅ **Kimi Claw Native** - Works seamlessly with Kimi's 24/7 cloud agents
+- ✅ **OpenClaw Compatible** - Install via ClawHub skill marketplace
+- ✅ **CLI-First** - Perfect for automation and scripting
+- ✅ **Zero Config** - Works out of the box, configure only what you need
 
-### Security Built-In
-- ✅ XSS protection (HTML escaping)
-- ✅ Honeypot spam protection
-- ✅ CSRF tokens
-- ✅ Client-side rate limiting
-- ✅ Server-side validation
+### 📋 Form Builder
+- ✅ **8+ Field Types** - Text, email, phone, URL, textarea, select, radio, checkbox, scale/rating, date
+- ✅ **JSON Schema** - Define forms in simple JSON, generate beautiful HTML
+- ✅ **No Code** - Pure form generation, no React/Vue/Angular needed
+- ✅ **Instant Preview** - Generate and open in browser with one command
 
-### Styling
-- ✅ Beautiful gradient purple theme
-- ✅ Responsive design
-- ✅ Accessible forms
-- ✅ Clean, modern UI
+### 🔒 Security Hardened
+- ✅ **XSS Protection** - HTML escaping on all inputs
+- ✅ **CSRF Tokens** - Protection against cross-site request forgery
+- ✅ **Honeypot Traps** - Spam bot detection
+- ✅ **Rate Limiting** - Client and server-side protection
+- ✅ **Input Validation** - Client + server-side validation
+- ✅ **No Telemetry** - Zero tracking, zero data collection
+
+### 📧 BYOK Email
+- ✅ **Any SMTP Server** - Zoho, Gmail, Resend, agentmail.to, SendGrid, or your own
+- ✅ **Agent-Friendly** - Recommended providers that don't ban bots
+- ✅ **Email Templates** - Beautiful HTML + plain text emails
+- ✅ **Multi-Recipient** - Send to multiple emails (coming in v0.2.0)
+
+### 💾 Flexible Storage
+- ✅ **JSON Storage** - Structured response data
+- ✅ **CSV Export** - Spreadsheet-compatible format
+- ✅ **Local First** - Your filesystem, your control
+- ✅ **No Database** - Simple file-based storage
+
+### 🎨 Beautiful by Default
+- ✅ **Gradient Purple Theme** - Modern, professional design
+- ✅ **Responsive** - Works on mobile, tablet, desktop
+- ✅ **Accessible** - WCAG-compliant form controls
+- ✅ **Customizable** - Easy to modify CSS (themes coming soon)
+
+### 🚀 Deploy Anywhere
+- ✅ **Static HTML** - Generate and host on any static server
+- ✅ **Node.js Server** - Built-in Express server included
+- ✅ **Vercel/Netlify** - Deploy with one command
+- ✅ **Self-Hosted** - Run on your own infrastructure
 
 ## Configuration
 
