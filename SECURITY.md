@@ -236,7 +236,7 @@ chmod 600 responses/*.json
 
 If you find a security vulnerability, please report it responsibly:
 
-**Email:** arundinakar79@gmail.com  
+**Email:** reddishfirebird@gmail.com  
 **Subject:** [SECURITY] GateCrash Forms - [brief description]
 
 **Please include:**
@@ -329,7 +329,7 @@ Before using GateCrash Forms in production:
 
 ## 📞 Contact
 
-**Security Questions:** arundinakar79@gmail.com  
+**Security Questions:** reddishfirebird@gmail.com  
 **GitHub Issues:** https://github.com/Phoenix2479/gatecrash-forms/issues  
 **Community:** (Discord/forum coming soon)
 
