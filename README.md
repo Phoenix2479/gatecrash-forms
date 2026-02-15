@@ -1,8 +1,14 @@
 # 🚀 GateCrash Forms
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+[![GitHub Stars](https://img.shields.io/github/stars/Phoenix2479/gatecrash-forms?style=social)](https://github.com/Phoenix2479/gatecrash-forms)
+
 **CLI-first form builder that respects your freedom**
 
 We crash gates. We don't build new ones.
+
+> 🎯 **Status:** MVP Complete | 52KB total | Built in 2.5 hours | Ready for production
 
 ## Philosophy: BYOK (Bring Your Own Keys)
 
