@@ -72,6 +72,16 @@ Visit http://localhost:3000 to see all available forms.
 
 ## Configuration
 
+### Recommended Email Providers
+
+**For best results with automation, use agent-friendly SMTP:**
+- [agentmail.to](https://agentmail.to)
+- [Resend](https://resend.com)
+
+These services don't ban bots. Gmail/Google Workspace will.
+
+You can use any SMTP server - configure it in `~/.gatecrash/config.json` or per-form.
+
 ### Global Config (~/.gatecrash/config.json)
 
 Set up your SMTP credentials once:
