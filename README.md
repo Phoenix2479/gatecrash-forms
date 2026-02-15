@@ -22,6 +22,21 @@ You control:
 
 No GateCrash accounts. No GateCrash servers. No gatekeeping.
 
+## 🔒 Security First
+
+**New to GateCrash Forms? Read this first:**
+
+GateCrash Forms is open source and secure by design. Before using:
+
+1. ✅ **Verify the package:** Source code at https://github.com/Phoenix2479/gatecrash-forms
+2. ✅ **Review SECURITY.md:** Full security documentation
+3. ✅ **Test safely:** Use test credentials first, not production passwords
+4. ✅ **Your data stays yours:** No telemetry, no tracking, no external servers
+
+**IMPORTANT:** Update example form emails (`your-email@example.com`) to your actual email address before using.
+
+See [SECURITY.md](./SECURITY.md) for full security practices and safe installation guide.
+
 ## Quick Start
 
 ### Install Dependencies

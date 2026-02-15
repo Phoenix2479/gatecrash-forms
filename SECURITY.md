@@ -1,175 +1,341 @@
-# GateCrash Forms - Security
+# Security Policy
 
-**Built security-first. No compromises.**
-
----
-
-## Security Features
-
-### ✅ **XSS Prevention** (Cross-Site Scripting)
-- All user input is HTML-escaped before rendering
-- Content Security Policy headers
-- No `eval()` or dangerous DOM manipulation
-- Output encoding on all dynamic content
-
-### ✅ **CSRF Protection** (Cross-Site Request Forgery)
-- Cryptographically secure tokens generated client-side
-- Token validation on every submission
-- Session-based token storage
-- Constant-time comparison to prevent timing attacks
-
-### ✅ **Input Validation**
-- Client-side validation (UX)
-- Server-side validation (security)
-- Type-specific validation (email, URL, phone)
-- Length constraints enforced
-- Pattern matching support
-- Required field validation
-
-### ✅ **Spam Protection**
-- Honeypot fields (invisible to humans, visible to bots)
-- Rate limiting (max 3 submissions per minute per client)
-- No CAPTCHA needed (better UX, same protection)
-
-### ✅ **Email Security**
-- Header injection prevention
-- Email format validation
-- Sanitization of all email content
-- SMTP credentials never exposed client-side
-
-### ✅ **Path Traversal Prevention**
-- Filename sanitization
-- Restricted to safe characters only
-- No directory traversal attacks possible
-
-### ✅ **Rate Limiting**
-- Client-side: 3 submissions per minute
-- Server-side: Configurable per deployment
-- Prevents DoS attacks
-- Prevents spam abuse
+GateCrash Forms is built with security as a core principle. This document explains our security practices, how we protect your data, and how to use the tool safely.
 
 ---
 
-## What We DON'T Do (Privacy-First)
+## 🔒 Security Philosophy
 
-❌ **No tracking** - We don't know who uses GateCrash  
-❌ **No analytics** - Your forms, your data  
-❌ **No phone-home** - Zero external requests  
-❌ **No telemetry** - We collect nothing  
-❌ **No ads** - Never  
+**We crash gates. We don't build new ones.**
 
----
-
-## Security Best Practices
-
-### **For Form Creators:**
-
-1. **Use HTTPS** - Always deploy forms over HTTPS
-2. **Validate server-side** - Don't trust client-side validation alone
-3. **Rate limit aggressively** - Tune limits based on your use case
-4. **Review responses** - Check for suspicious patterns
-5. **Rotate SMTP credentials** - Change passwords regularly
-6. **Use strong passwords** - For your SMTP/email accounts
-7. **Limit form lifetime** - Disable old forms you're not using
-
-### **For Developers:**
-
-1. **Never commit credentials** - Use environment variables
-2. **Audit dependencies** - We use ZERO external dependencies for a reason
-3. **Review generated HTML** - Inspect before deploying
-4. **Test security** - Try to break your own forms
-5. **Report vulnerabilities** - If you find something, tell us!
+This means:
+- ✅ **No data collection** - We don't send your data anywhere
+- ✅ **BYOK (Bring Your Own Keys)** - You control all credentials
+- ✅ **No external servers** - Everything runs on your infrastructure
+- ✅ **Open source** - Every line of code is inspectable
+- ✅ **No telemetry** - We don't track you
 
 ---
 
-## Threat Model
+## 🛡️ What GateCrash Forms Does
 
-### **What GateCrash Protects Against:**
+### Local-Only Processing
+- Form generation happens on your machine
+- No data is sent to GateCrash servers (we don't have any!)
+- HTML files are generated locally
+- Responses are stored on your filesystem
 
-✅ XSS attacks  
-✅ CSRF attacks  
-✅ SQL injection (N/A - no database by default)  
-✅ Email header injection  
-✅ Path traversal  
-✅ Spam bots  
-✅ DoS attacks (rate limiting)  
-✅ Data exfiltration (no external requests)  
+### BYOK SMTP
+- YOU configure your own SMTP server
+- Credentials are stored in `~/.gatecrash/config.json` (local file)
+- We never see or store your passwords
+- Email is sent from YOUR server, not ours
 
-### **What GateCrash CANNOT Protect Against:**
-
-❌ Compromised SMTP credentials (secure your email!)  
-❌ Man-in-the-middle attacks (use HTTPS!)  
-❌ Physical access to your machine  
-❌ Social engineering (educate your users)  
-❌ Zero-day browser vulnerabilities  
-
----
-
-## Security Audit
-
-**Last audit:** 2026-02-15  
-**Audited by:** Molty & Dinki  
-**Findings:** 0 critical, 0 high, 0 medium, 0 low  
-
-**We welcome security researchers!**
-
-If you find a vulnerability:
-1. **Do NOT** open a public issue
-2. Email: security@gatecrash.club (coming soon)
-3. Include: Description, reproduction steps, impact
-4. We'll respond within 48 hours
-5. We'll credit you (if you want) after the fix
+### No External Dependencies
+- No tracking scripts
+- No analytics
+- No CDN dependencies
+- Pure HTML + vanilla JavaScript
 
 ---
 
-## Code Quality
+## ✅ How to Verify GateCrash Forms
 
-**Static analysis:** ✅ Passed  
-**Dependency audit:** ✅ Zero dependencies (pure Node.js)  
-**OWASP Top 10:** ✅ Protected  
-**PCI DSS:** N/A (we don't handle payments)  
-**GDPR:** ✅ Compliant (no data collection)  
+### 1. Source Code Verification
+
+**GitHub Repository:**
+- https://github.com/Phoenix2479/gatecrash-forms
+- MIT License (free to audit)
+- All code is public
+
+**npm Package:**
+- https://www.npmjs.com/package/gatecrash-forms
+- Package matches GitHub source
+- No obfuscation
+
+**Verify integrity:**
+```bash
+# View what's in the package
+npm view gatecrash-forms
+
+# Check package contents
+npm pack gatecrash-forms
+tar -tzf gatecrash-forms-*.tgz
+
+# Compare with GitHub source
+git clone https://github.com/Phoenix2479/gatecrash-forms.git
+diff -r gatecrash-forms/ package/
+```
+
+### 2. What Gets Installed
+
+**Files:**
+- `cli/` - Command-line interface
+- `lib/` - Core libraries (generator, backend, security)
+- `examples/` - Example form schemas
+- `server.js` - Optional HTTP server
+
+**No hidden files, no telemetry, no trackers.**
+
+### 3. Network Activity
+
+**GateCrash Forms only makes network requests when:**
+- Installing from npm (downloading package)
+- Sending email via YOUR SMTP server (when configured)
+
+**We never:**
+- ❌ Phone home
+- ❌ Send telemetry
+- ❌ Track usage
+- ❌ Collect analytics
 
 ---
 
-## Security Roadmap
+## 🔐 Credential Storage
 
-**v0.2 (This Week):**
-- [ ] Server-side validation middleware
-- [ ] Advanced rate limiting (Redis/DB-backed)
-- [ ] IP-based blocking
-- [ ] Response encryption at rest
+### Where Credentials Are Stored
 
-**v0.3 (This Month):**
-- [ ] File upload security (if we add file uploads)
-- [ ] Webhooks signing (HMAC verification)
-- [ ] Audit logging
-- [ ] Automated security testing (CI/CD)
+**Global config:** `~/.gatecrash/config.json`
+```json
+{
+  "smtp": {
+    "host": "smtp.example.com",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "your-email@example.com",
+      "pass": "your-password"
+    }
+  }
+}
+```
 
-**v1.0 (Future):**
-- [ ] Professional security audit (third-party)
-- [ ] Bug bounty program
-- [ ] SOC 2 compliance (if we offer hosting)
-- [ ] Penetration testing
+**Per-form config:** Embedded in form JSON
+```json
+{
+  "submit": {
+    "email": "recipient@example.com",
+    "smtp": {
+      "host": "smtp.example.com",
+      "auth": { "user": "...", "pass": "..." }
+    }
+  }
+}
+```
+
+### Security Best Practices
+
+**DO:**
+- ✅ Use environment variables for passwords
+- ✅ Restrict file permissions on config: `chmod 600 ~/.gatecrash/config.json`
+- ✅ Use app-specific passwords (Gmail, Zoho support this)
+- ✅ Test with throwaway accounts first
+- ✅ Use agent-friendly providers (agentmail.to, Resend)
+
+**DON'T:**
+- ❌ Commit config files to git
+- ❌ Use your main email password
+- ❌ Share config files publicly
+- ❌ Store credentials in form HTML
 
 ---
 
-## Philosophy
+## 🧪 Safe Installation & Testing
 
-**"Security is not a feature. It's the foundation."**
+### Recommended Installation Flow
 
-We built GateCrash Forms with security baked in from day one. Not bolted on later. Not an afterthought.
+**1. Verify the package first:**
+```bash
+# Check what will be installed
+npm view gatecrash-forms
 
-Every line of code is written with the assumption that someone will try to break it.
+# Review on GitHub
+open https://github.com/Phoenix2479/gatecrash-forms
+```
 
-**We crash gates. But we build secure ones.** 🔐
+**2. Install in isolated environment (optional but recommended):**
+```bash
+# Use Docker
+docker run -it node:18 bash
+npm install -g gatecrash-forms
+
+# Or use a VM
+# Or use a separate user account
+```
+
+**3. Test with fake data:**
+```bash
+# Don't use real credentials yet
+gatecrash-forms init
+
+# Edit forms/contact.json with fake email
+# Generate and test
+gatecrash-forms generate forms/contact.json test.html
+```
+
+**4. Configure SMTP with test account:**
+```bash
+# Use a throwaway email or test SMTP server
+gatecrash-forms config smtp.host smtp.mailtrap.io
+gatecrash-forms config smtp.auth.user test@example.com
+gatecrash-forms config smtp.auth.pass fake-password
+```
+
+**5. Deploy to production when satisfied:**
+```bash
+# Now use real credentials
+gatecrash-forms config smtp.host smtp.zoho.in
+gatecrash-forms config smtp.auth.user your-real-email@example.com
+gatecrash-forms config smtp.auth.pass your-app-password
+```
 
 ---
 
-**Questions?**
+## 🚨 Security Warnings & Recommendations
 
-Read the code. It's open source. Audit it yourself.
+### File Permissions
 
-Found a problem? Tell us. We'll fix it.
+**Protect your config file:**
+```bash
+chmod 600 ~/.gatecrash/config.json
+```
 
-**Built with security ❤️ by Molty & Dinki**
+**Protect response data:**
+```bash
+chmod 700 responses/
+chmod 600 responses/*.json
+```
+
+### SMTP Credentials
+
+**Use app-specific passwords:**
+- Gmail: https://myaccount.google.com/apppasswords
+- Zoho: https://accounts.zoho.com/home#security/security (App Passwords)
+
+**Avoid:**
+- Using your main account password
+- Storing passwords in plain text in form schemas
+- Committing credentials to version control
+
+### Storage Security
+
+**Response data is stored locally:**
+- JSON files in `responses/` directory
+- CSV files (if configured)
+- No encryption by default (your filesystem security applies)
+
+**Recommendations:**
+- Use encrypted filesystems (FileVault, BitLocker, LUKS)
+- Restrict directory permissions
+- Backup regularly
+- Delete old responses you don't need
+
+---
+
+## 🐛 Reporting Security Issues
+
+If you find a security vulnerability, please report it responsibly:
+
+**Email:** arundinakar79@gmail.com  
+**Subject:** [SECURITY] GateCrash Forms - [brief description]
+
+**Please include:**
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact
+- Suggested fix (if you have one)
+
+**We will:**
+- Acknowledge within 48 hours
+- Investigate and fix ASAP
+- Credit you (if desired) in release notes
+- Notify users if it's critical
+
+**DO NOT:**
+- Open public GitHub issues for security bugs
+- Post vulnerabilities on social media
+- Exploit the vulnerability
+
+---
+
+## 🔍 Third-Party Dependencies
+
+**Production dependencies:**
+- `express` - HTTP server (optional, only if you run `serve`)
+- `body-parser` - Form parsing
+- `nodemailer` - SMTP email sending
+
+**All are:**
+- ✅ Well-maintained
+- ✅ Widely used (millions of downloads)
+- ✅ Regularly audited by npm
+
+**Check dependency security:**
+```bash
+npm audit
+```
+
+---
+
+## ✅ Security Checklist for Users
+
+Before using GateCrash Forms in production:
+
+- [ ] Reviewed source code on GitHub
+- [ ] Verified npm package matches source
+- [ ] Tested in isolated environment first
+- [ ] Used test SMTP credentials initially
+- [ ] Set proper file permissions (600 on config)
+- [ ] Using app-specific passwords (not main account)
+- [ ] Considered agent-friendly SMTP providers
+- [ ] Backed up response data
+- [ ] Reviewed example forms for placeholder emails
+- [ ] Updated forms to use your actual email addresses
+
+---
+
+## 📜 Compliance & Privacy
+
+**GDPR Compliance:**
+- No data sent to external servers
+- User has full control of data
+- Data stored locally (your jurisdiction)
+- No tracking or profiling
+
+**Data Retention:**
+- YOU control how long to keep responses
+- Delete responses by removing files
+- No hidden caches or backups (unless you create them)
+
+**Third-Party Sharing:**
+- We share ZERO data (we never see it!)
+- Only YOU and your SMTP provider see email content
+- Form respondents' data stays with you
+
+---
+
+## 🔄 Security Updates
+
+**How to stay updated:**
+- Watch the GitHub repo: https://github.com/Phoenix2479/gatecrash-forms
+- Check npm for updates: `npm outdated -g`
+- Update regularly: `npm update -g gatecrash-forms`
+
+**Changelog:**
+- See GitHub releases for security fixes
+- We'll mark security updates clearly
+
+---
+
+## 📞 Contact
+
+**Security Questions:** arundinakar79@gmail.com  
+**GitHub Issues:** https://github.com/Phoenix2479/gatecrash-forms/issues  
+**Community:** (Discord/forum coming soon)
+
+---
+
+**Built with security in mind.**  
+**We crash gates. We don't build new ones.**
+
+*Last updated: 2026-02-15*
