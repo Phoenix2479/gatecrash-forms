@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GateCrash Forms - Test Drive 🚀</title>
+  <style>
+    
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+      }
+      
+      .form-wrapper {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      }
+      
+      h1 {
+        color: #2d3748;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      
+      .description {
+        color: #718096;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+      
+      .form-group {
+        margin-bottom: 24px;
+      }
+      
+      label {
+        display: block;
+        color: #2d3748;
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+      
+      .required {
+        color: #e53e3e;
+        margin-left: 4px;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="phone"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.2s;
+        font-family: inherit;
+      }
+      
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+      
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      
+      .radio-label,
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      
+      .radio-label input,
+      .checkbox-label input {
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      
+      .scale-wrapper {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .scale-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .scale-label input {
+        margin-bottom: 4px;
+        cursor: pointer;
+      }
+      
+      .scale-num {
+        font-size: 14px;
+        color: #718096;
+      }
+      
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+      
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+      
+      #success-message {
+        text-align: center;
+        padding: 40px 0;
+      }
+      
+      #success-message h2 {
+        color: #48bb78;
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      
+      #success-message p {
+        color: #718096;
+        font-size: 16px;
+      }
+      
+      .form-errors {
+        background: #fed7d7;
+        border: 2px solid #fc8181;
+        border-radius: 6px;
+        padding: 16px;
+        margin-bottom: 20px;
+        color: #742a2a;
+      }
+      
+      .form-errors ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      
+      .form-errors li {
+        margin: 4px 0;
+      }
+      
+      .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      
+      @media (max-width: 640px) {
+        .form-wrapper {
+          padding: 24px;
+        }
+        
+        h1 {
+          font-size: 24px;
+        }
+      }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1>GateCrash Forms - Test Drive 🚀</h1>
+      <p class="description">Welcome to the first GateCrash tool! This form was generated in under 3 hours. No Google. No gatekeepers. Just pure code. Fill it out and let&#39;s crash some gates together.</p>
+      
+      <form action="mailto:molty@niyam.work" method="POST" class="gatecrash-form" id="mainForm" novalidate>
+        
+      <div class="form-group">
+        <label for="name">What should we call you?<span class="required">*</span></label>
+        <input type="text" id="name" name="name" 
+          placeholder="Dinki, Molty, Gate Crasher..." 
+          required >
+      </div>
+    
+
+      <div class="form-group">
+        <label for="email">Email (so we can send you the response)<span class="required">*</span></label>
+        <input type="email" id="email" name="email" 
+          placeholder="your@email.com" 
+          required >
+      </div>
+    
+
+      <div class="form-group">
+        <label for="excitement">How excited are you about crashing gatekeepers?<span class="required">*</span></label>
+        <div class="scale-wrapper">
+          
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="1" required>
+              <span class="scale-num">1</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="2" required>
+              <span class="scale-num">2</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="3" required>
+              <span class="scale-num">3</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="4" required>
+              <span class="scale-num">4</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="5" required>
+              <span class="scale-num">5</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="6" required>
+              <span class="scale-num">6</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="7" required>
+              <span class="scale-num">7</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="8" required>
+              <span class="scale-num">8</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="9" required>
+              <span class="scale-num">9</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="10" required>
+              <span class="scale-num">10</span>
+            </label>
+          
+        </div>
+      </div>
+    
+
+      <div class="form-group">
+        <label for="targets">Which gates should we crash next?</label>
+        
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Google Forms (done! ✓)">
+            Google Forms (done! ✓)
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Google Analytics">
+            Google Analytics
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Dropbox&#x2F;Drive Storage">
+            Dropbox&#x2F;Drive Storage
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Auth0&#x2F;Firebase Auth">
+            Auth0&#x2F;Firebase Auth
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Mailchimp Email Marketing">
+            Mailchimp Email Marketing
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Typeform&#x2F;SurveyMonkey">
+            Typeform&#x2F;SurveyMonkey
+          </label>
+        
+      </div>
+    
+
+      <div class="form-group">
+        <label for="timeline">When do you want to see GateCrash.club live?<span class="required">*</span></label>
+        
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="This week (let&#39;s goooo)" required>
+            This week (let&#39;s goooo)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="This month (steady build)" >
+            This month (steady build)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="Take your time (quality over speed)" >
+            Take your time (quality over speed)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="I&#39;m just here for the chaos" >
+            I&#39;m just here for the chaos
+          </label>
+        
+      </div>
+    
+
+      <div class="form-group">
+        <label for="thoughts">Any thoughts, ideas, or things to fix?</label>
+        <textarea id="thoughts" name="thoughts" 
+          placeholder="Anything on your mind..." 
+           maxlength="500"></textarea>
+      </div>
+    
+        
+        <!-- Security: Honeypot spam protection -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        
+        <!-- Security: CSRF protection -->
+        <input type="hidden" name="_csrf" id="csrfToken" value="">
+        
+        <div id="form-errors" class="form-errors" style="display:none;"></div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+      </form>
+      
+      <div id="success-message" style="display:none;">
+        <h2>✓ Thank you!</h2>
+        <p>Your response has been submitted.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    
+      // GateCrash Forms - Secure Client-Side Handler
+      (function() {
+        const form = document.getElementById('mainForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorsDiv = document.getElementById('form-errors');
+        const schema = {"title":"GateCrash Forms - Test Drive 🚀","description":"Welcome to the first GateCrash tool! This form was generated in under 3 hours. No Google. No gatekeepers. Just pure code. Fill it out and let's crash some gates together.","fields":[{"type":"text","name":"name","label":"What should we call you?","placeholder":"Dinki, Molty, Gate Crasher...","required":true},{"type":"email","name":"email","label":"Email (so we can send you the response)","placeholder":"your@email.com","required":true},{"type":"scale","name":"excitement","label":"How excited are you about crashing gatekeepers?","min":1,"max":10,"required":true},{"type":"checkbox","name":"targets","label":"Which gates should we crash next?","options":["Google Forms (done! ✓)","Google Analytics","Dropbox/Drive Storage","Auth0/Firebase Auth","Mailchimp Email Marketing","Typeform/SurveyMonkey"]},{"type":"radio","name":"timeline","label":"When do you want to see GateCrash.club live?","options":["This week (let's goooo)","This month (steady build)","Take your time (quality over speed)","I'm just here for the chaos"],"required":true},{"type":"textarea","name":"thoughts","label":"Any thoughts, ideas, or things to fix?","placeholder":"Anything on your mind...","maxLength":500}],"submit":{"email":"molty@niyam.work"}};
+        
+        // Generate and set CSRF token
+        function generateCSRFToken() {
+          const array = new Uint8Array(32);
+          crypto.getRandomValues(array);
+          return Array.from(array, b => b.toString(16).padStart(2, '0')).join('');
+        }
+        
+        const csrfToken = generateCSRFToken();
+        document.getElementById('csrfToken').value = csrfToken;
+        sessionStorage.setItem('gatecrash_csrf', csrfToken);
+        
+        // Rate limiting (client-side basic check)
+        function checkRateLimit() {
+          const submissions = JSON.parse(localStorage.getItem('gatecrash_submissions') || '[]');
+          const now = Date.now();
+          const recentSubmissions = submissions.filter(t => now - t < 60000); // 1 minute window
+          
+          if (recentSubmissions.length >= 3) {
+            return false;
+          }
+          
+          recentSubmissions.push(now);
+          localStorage.setItem('gatecrash_submissions', JSON.stringify(recentSubmissions));
+          return true;
+        }
+        
+        // Validate form fields
+        function validateForm(formData) {
+          const errors = [];
+          
+          // Check honeypot
+          if (formData.get('_gotcha')) {
+            return ['Spam detected'];
+          }
+          
+          // Validate CSRF
+          const submittedCSRF = formData.get('_csrf');
+          const storedCSRF = sessionStorage.getItem('gatecrash_csrf');
+          if (submittedCSRF !== storedCSRF) {
+            return ['Security validation failed'];
+          }
+          
+          // Validate each field
+          schema.fields.forEach(field => {
+            const fieldName = field.name || 'field_' + schema.fields.indexOf(field);
+            let value = formData.get(fieldName);
+            
+            // Handle checkboxes
+            if (field.type === 'checkbox') {
+              value = formData.getAll(fieldName + '[]');
+            }
+            
+            // Required check
+            if (field.required && (!value || (Array.isArray(value) && value.length === 0))) {
+              errors.push((field.label || fieldName) + ' is required');
+            }
+            
+            if (!value) return;
+            
+            // Type validation
+            if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+              errors.push('Invalid email format');
+            }
+            
+            // Length validation
+            if (field.maxLength && value.length > field.maxLength) {
+              errors.push((field.label || fieldName) + ' is too long (max ' + field.maxLength + ' characters)');
+            }
+          });
+          
+          return errors;
+        }
+        
+        // Show errors
+        function showErrors(errors) {
+          if (errors.length === 0) {
+            errorsDiv.style.display = 'none';
+            return;
+          }
+          
+          errorsDiv.innerHTML = '<ul>' + errors.map(e => '<li>' + e + '</li>').join('') + '</ul>';
+          errorsDiv.style.display = 'block';
+          errorsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Handle submit
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Clear previous errors
+          showErrors([]);
+          
+          // Rate limit check
+          if (!checkRateLimit()) {
+            showErrors(['Too many submissions. Please wait a minute.']);
+            return;
+          }
+          
+          // Get form data
+          const formData = new FormData(form);
+          
+          // Validate
+          const errors = validateForm(formData);
+          if (errors.length > 0) {
+            showErrors(errors);
+            return;
+          }
+          
+          // Disable submit button
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+          
+          // Extract data
+          const data = {};
+          for (let [key, value] of formData.entries()) {
+            if (key === '_gotcha' || key === '_csrf') continue;
+            if (key.endsWith('[]')) {
+              const realKey = key.slice(0, -2);
+              if (!data[realKey]) data[realKey] = [];
+              data[realKey].push(value);
+            } else {
+              data[key] = value;
+            }
+          }
+          
+          // Save response (localStorage for demo, would be backend in production)
+          const responses = JSON.parse(localStorage.getItem('gatecrash_responses') || '[]');
+          responses.push({
+            timestamp: new Date().toISOString(),
+            formName: schema.title || 'Untitled Form',
+            data: data
+          });
+          localStorage.setItem('gatecrash_responses', JSON.stringify(responses));
+          
+          // Show success
+          form.style.display = 'none';
+          document.getElementById('success-message').style.display = 'block';
+          
+          console.log('✓ Form submitted securely:', data);
+        });
+      })();
+    
+  </script>
+</body>
+</html>

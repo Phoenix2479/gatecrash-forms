@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GateCrash Forms - Test Drive 🚀</title>
+  <style>
+    
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+      }
+      
+      .form-wrapper {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      }
+      
+      h1 {
+        color: #2d3748;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      
+      .description {
+        color: #718096;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+      
+      .form-group {
+        margin-bottom: 24px;
+      }
+      
+      label {
+        display: block;
+        color: #2d3748;
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+      
+      .required {
+        color: #e53e3e;
+        margin-left: 4px;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="phone"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.2s;
+        font-family: inherit;
+      }
+      
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+      
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      
+      .radio-label,
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      
+      .radio-label input,
+      .checkbox-label input {
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      
+      .scale-wrapper {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .scale-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .scale-label input {
+        margin-bottom: 4px;
+        cursor: pointer;
+      }
+      
+      .scale-num {
+        font-size: 14px;
+        color: #718096;
+      }
+      
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+      
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+      
+      #success-message {
+        text-align: center;
+        padding: 40px 0;
+      }
+      
+      #success-message h2 {
+        color: #48bb78;
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      
+      #success-message p {
+        color: #718096;
+        font-size: 16px;
+      }
+      
+      @media (max-width: 640px) {
+        .form-wrapper {
+          padding: 24px;
+        }
+        
+        h1 {
+          font-size: 24px;
+        }
+      }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1>GateCrash Forms - Test Drive 🚀</h1>
+      <p class="description">Welcome to the first GateCrash tool! This form was generated in under 3 hours. No Google. No gatekeepers. Just pure code. Fill it out and let&#39;s crash some gates together.</p>
+      
+      <form action="mailto:molty@niyam.work" method="POST" class="gatecrash-form" id="mainForm">
+        
+      <div class="form-group">
+        <label for="name">What should we call you?<span class="required">*</span></label>
+        <input type="text" id="name" name="name" 
+          placeholder="Dinki, Molty, Gate Crasher..." 
+          required >
+      </div>
+    
+
+      <div class="form-group">
+        <label for="email">Email (so we can send you the response)<span class="required">*</span></label>
+        <input type="email" id="email" name="email" 
+          placeholder="your@email.com" 
+          required >
+      </div>
+    
+
+      <div class="form-group">
+        <label for="excitement">How excited are you about crashing gatekeepers?<span class="required">*</span></label>
+        <div class="scale-wrapper">
+          
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="1" required>
+              <span class="scale-num">1</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="2" required>
+              <span class="scale-num">2</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="3" required>
+              <span class="scale-num">3</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="4" required>
+              <span class="scale-num">4</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="5" required>
+              <span class="scale-num">5</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="6" required>
+              <span class="scale-num">6</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="7" required>
+              <span class="scale-num">7</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="8" required>
+              <span class="scale-num">8</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="9" required>
+              <span class="scale-num">9</span>
+            </label>
+          
+
+            <label class="scale-label">
+              <input type="radio" name="excitement" value="10" required>
+              <span class="scale-num">10</span>
+            </label>
+          
+        </div>
+      </div>
+    
+
+      <div class="form-group">
+        <label for="targets">Which gates should we crash next?</label>
+        
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Google Forms (done! ✓)">
+            Google Forms (done! ✓)
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Google Analytics">
+            Google Analytics
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Dropbox/Drive Storage">
+            Dropbox/Drive Storage
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Auth0/Firebase Auth">
+            Auth0/Firebase Auth
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Mailchimp Email Marketing">
+            Mailchimp Email Marketing
+          </label>
+        
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="targets[]" value="Typeform/SurveyMonkey">
+            Typeform/SurveyMonkey
+          </label>
+        
+      </div>
+    
+
+      <div class="form-group">
+        <label for="timeline">When do you want to see GateCrash.club live?<span class="required">*</span></label>
+        
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="This week (let&#39;s goooo)" required>
+            This week (let&#39;s goooo)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="This month (steady build)" >
+            This month (steady build)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="Take your time (quality over speed)" >
+            Take your time (quality over speed)
+          </label>
+        
+
+          <label class="radio-label">
+            <input type="radio" name="timeline" value="I&#39;m just here for the chaos" >
+            I&#39;m just here for the chaos
+          </label>
+        
+      </div>
+    
+
+      <div class="form-group">
+        <label for="thoughts">Any thoughts, ideas, or things to fix?</label>
+        <textarea id="thoughts" name="thoughts" 
+          placeholder="Anything on your mind..." 
+           maxlength="500"></textarea>
+      </div>
+    
+        
+        <!-- Honeypot spam protection -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      
+      <div id="success-message" style="display:none;">
+        <h2>✓ Thank you!</h2>
+        <p>Your response has been submitted.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    
+        document.getElementById('mainForm').addEventListener('submit', function(e) {
+          // Check honeypot
+          if (document.querySelector('input[name="_gotcha"]').value !== '') {
+            e.preventDefault();
+            return false;
+          }
+        });
+      
+  </script>
+</body>
+</html>
