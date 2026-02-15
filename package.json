@@ -1,6 +1,6 @@
 {
   "name": "gatecrash-forms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI-first form builder with BYOK philosophy - crash gates, don't build new ones",
   "main": "server.js",
   "bin": {
